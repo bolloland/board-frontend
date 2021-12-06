@@ -1,0 +1,59 @@
+.header {
+    border: 12px solid black; 
+    color: red; 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.footer {
+    border: 8px solid red; 
+    color: black; 
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 0; 
+    width: 99%; 
+}
+
+.sidebar {
+    border: 3px solid blue;
+    color: purple; 
+    width: 20vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.cat-container {
+border: 5px solid gray;
+position: absolute; 
+top: 14vh; 
+left: 22vw;
+height: 60vh; 
+width: 75vw;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+overflow: hidden;
+overflow-y: scroll;
+
+}
+
+.thumb {
+    height: 100px
+}
+
+.game-container {
+    border: 4px solid yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: center;
+}
