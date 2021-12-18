@@ -28,13 +28,13 @@ export const getGames = () => (dispatch) => {
     })
 }
 
-// export const loadGames = () => async (dispatch, getState) => {
-//     const games = await fetch(gamesURL)
-//     .then(resp => resp.json())
-//     .then(storeGames => {
-//       dispatch({                // sends to my reducer
-//           type: "GET_GAMES",
-//           payload: storeGames
-//       })
-//     })
-// }
+export const loadGames = () => async (dispatch, getState) => {
+    const games = await fetch(gamesURL)
+    .then(resp => resp.json())
+    .then(storeGames => {
+      dispatch({                // sends to my reducer
+          type: "GET_GAMES",
+          payload: storeGames
+      })
+    })
+}
