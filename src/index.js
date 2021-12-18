@@ -12,7 +12,9 @@ import thunk from 'redux-thunk'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(allReducers, composeEnhancers(applyMiddleware(thunk)))
-                                                        // redux-thunk ^^^ ??
+// allows store to access middleWare and redux-thunk
+
+// https://github.com/zalmoxisus/redux-devtools-extension
 
 ReactDOM.render(
   <React.StrictMode>
