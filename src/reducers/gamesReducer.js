@@ -1,27 +1,25 @@
+import { LOAD_GAMES, ADD_COLLECT } from "../actions/types"
+
 const INITIAL_STATE = {
-    hello: "hey, Ry!", 
-    storeGames: []
+    storeGames: [],
+    myCollection: []
 }
 
 // const gamesURL = "http://localhost:3000/games"
 
 export const gamesReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
-        case "LOAD_GAMES":
+        case LOAD_GAMES:
             return {...state, storeGames: [...state.storeGames, action.payload]}
-            
-            default:
-                return {...state}
-                // case "GET_GAMES":
-                //     return {...state, storeGames: [...state.storeGames, action.payload]}
-                //     console.log(action.payload)
+        case ADD_COLLECT:
+            console.log(action.payload)
+            return {...state, myCollection: [...state.myCollection, action.payload]}
+        default:
+            return {...state}
+              
     }
 }
 
-// export const loadGames = () => async (dispatch, useState) => {
-//     const games = await fetch(gamesURL)
-//     .then(resp => resp.json())
-//     dispatch(renderGames(games))
-// }
+
 
 export default gamesReducer
