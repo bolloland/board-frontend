@@ -2,22 +2,22 @@ import React from 'react'
 import '../styles.css'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-// import Game from './Game'
+import Game from './Game'
 import "../styles.css"  
-import { fetchGames } from '../actions'
-import { connect } from 'react-redux'
 
-const GamesContainer = () => {
+const GamesContainer = (props) => {
     
-    const theGames = useSelector(state => state.gamesReducer.storeGames)
-    useEffect(() => console.log(theGames))
+    const games = (props.games[0])
     
     return (
-        <div className="games-container">
+        <div className="allgames-container">
+         {/* && serves as an if>then statement */}
+         {games && games.map(game => <Game gamedata={game}/>)}
+
             <h3>games go here!</h3>
 
         </div>
     )
 }
 //connect connects a React component to a Store
-export default connect(null, { fetchGames })(GamesContainer)
+export default GamesContainer
