@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { addToCollection } from '../actions'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import AddToCollectionButton from './AddToCollectionButton'
 
 const Game = ({gamedata}) => {
     // gamedata is each game
@@ -19,12 +20,11 @@ const Game = ({gamedata}) => {
         <div className="game-container">
             {gamedata.name}<br />
 
-            <img onClick={() => { navigate(`/${gamedata.id}`) }} className="thumb" src={gamedata.thumb_url} alt="" />
+            <img onClick={() => { navigate(`/games/${gamedata.name}`) }} className="thumb" src={gamedata.thumb_url} alt="" />
 
             Average Rating: <br />
            {gamedata.avg_rating ? gamedata.avg_rating + " / 5": "n/a"}
-    
-    
+            
             {!collected ? <button onClick={() => dispatch(addToCollection(gamedata))}>add to collection</button> : <button>"in your collection"</button>}
            
            
