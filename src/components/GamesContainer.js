@@ -5,10 +5,14 @@ import { useSelector } from 'react-redux'
 import Game from './Game'
 import "../styles.css"  
 
-const GamesContainer = (props) => {
+const GamesContainer = () => {
     
-    const games = (props.games[0])
+    const games = useSelector(state => state.gamesReducer.storeGames)
     
+    useEffect(() => {
+        console.log(games, "game update")
+    }, [games])
+
     return (
         <div className="allgames-container">
          {/* && serves as an if>then statement */}
