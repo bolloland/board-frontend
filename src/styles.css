@@ -43,12 +43,24 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-wrap: wrap;
+}
 
-
+.description-container {
+    border: 2px solid red;
+    position: static;
+    display: inline-flex;
+    justify-content: right;
+    height: 100px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .thumb {
     height: 100px
+}
+
+.thumb-show {
+    height: 300px
 }
 
 .allgames-container {
