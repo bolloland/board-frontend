@@ -1,9 +1,11 @@
 import { LOAD_GAMES, ADD_COLLECT, SUBMIT_NEW_GAME, SHOW_HIDE_REVIEW_FORM } from "../actions/types"
+import { SUBMIT_NEW_REVIEW, LOAD_REVIEWS } from "../actions/types"
 
 const INITIAL_STATE = {
     storeGames: [],
     myCollection: [],
-    showHideReviews: [false]
+    showHideReviews: [false],
+    gameReviews: []
 }
 
 // const gamesURL = "http://localhost:3000/games"
@@ -20,6 +22,13 @@ export const gamesReducer = (state = INITIAL_STATE, action) => {
             return {...state, storeGames: [...state.storeGames, action.payload]}
         case SHOW_HIDE_REVIEW_FORM:
             return {...state, showHideReviews: [...state.showHideReviews, action.payload]}
+        case SUBMIT_NEW_REVIEW:
+            let game = state.storeGames.find(g => g.id === action.payload.game_id)
+            game.reviews.push(action.payload)
+            return {
+                ...state, 
+                storeGames: [...state.storeGames], game
+            }
         default:
             return {...state}      
     }
