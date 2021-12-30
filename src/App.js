@@ -31,10 +31,11 @@ function App() {
         <Route exact path="/myCollection" element={ <MyCollection  />}  />
         <Route exact path="/add-game" element={ <AddGame />}  />
         <Route exact path="/games/:id" element={ <ShowGame />}  />
+        <Route exact path="/search" element={ <SearchContainer />}  />
       </Routes>
       <h1>HORDE the BOARD </h1>
       
-      <SearchContainer />
+      
       <Footer />
     </div>
   );
