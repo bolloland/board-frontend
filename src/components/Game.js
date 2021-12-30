@@ -12,24 +12,22 @@ const Game = ({gamedata}) => {
     const navigate = useNavigate()
     const myCollection = useSelector(state => state.gamesReducer.myCollection)
 
-    
-    let collected = myCollection.find(g => g.id == gamedata.id)
-    
+    let collected = myCollection.find(g => g.id === gamedata.id)
 
     return (
         <div className="game-container">
             {gamedata.name}<br />
-
-            <img onClick={() => { navigate(`/games/${gamedata.name}`) }} className="thumb" src={gamedata.thumb_url} alt="" />
+            
+            {/* is this ^^^ the issue with slugs URL? */}
+            <img onClick={() => { navigate(`/games/${gamedata.id}`) }} className="thumb" src={gamedata.thumb_url} alt="" />
 
             Average Rating: <br />
-           {gamedata.avg_rating ? gamedata.avg_rating + " / 5": "n/a"}
+            {gamedata.avg_rating ? gamedata.avg_rating + " / 5": "n/a"}
             
             {!collected ? <button onClick={() => dispatch(addToCollection(gamedata))}>add to collection</button> : <button>"in your collection"</button>}
-           
-           
-           <button>{gamedata.review_count == 0 ? "write a review" : "see " + gamedata.review_count + " review(s)"}</button>
-       
+    
+        <button>{gamedata.review_count === 0 ? "write a review" : "see " + gamedata.reviews.count + " review(s)"}</button>
+    
         </div>
     )
 }
