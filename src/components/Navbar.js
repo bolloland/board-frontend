@@ -10,11 +10,11 @@ const Navbar = () => {
 
     return (
         <div className="navbar">
-            <h5>NAVBAR</h5>
-        <button onClick={() => { navigate("/") }}>HOME</button>
-        <button onClick={() => { navigate("/myCollection") }}>My Collection</button>
-        <button onClick={() => { navigate("/add-game") }}>Add A Game</button>
-        <button onClick={() => { navigate("/search") }}>SEARCH</button>
+          
+        <button className="button" onClick={() => { navigate("/") }}>Game Rack</button>
+        <button className="button" onClick={() => { navigate("/myCollection") }}>My Collection</button>
+        <button className="button" onClick={() => { navigate("/add-game") }}>Add A Game</button>
+        <button className="button" onClick={() => { navigate("/search") }}>Search Games</button>
         </div>
     )
 }
