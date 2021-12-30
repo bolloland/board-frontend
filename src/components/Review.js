@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Review = () => {
+const Review = (props) => {
+
     return (
-        <div>
-            HERE'S THE REVIEW FORM
+        <div className="review-container">
+           <strong> {props.rev.title}</strong><br></br>
+            {props.rev.rev_text}
         </div>
     )
 }
