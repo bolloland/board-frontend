@@ -16,12 +16,12 @@ const GamesContainer = () => {
     return (
         <div className="allgames-container">
          {/* && serves as an if>then statement */}
-         {games && games.map(game => <Game gamedata={game}/>)}
+         {games.map(game => <Game gamedata={game}/>)}
 
             <h3>games go here!</h3>
 
         </div>
     )
 }
-//connect connects a React component to a Store
+
 export default GamesContainer
