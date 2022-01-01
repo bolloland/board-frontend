@@ -12,8 +12,10 @@ const AddToCollectionButton = ({gamedata}) => {
     return (
         <div className="add-to-collection-button">
 
-        {!collected ? <button className="button" onClick={() => dispatch(addToCollection(gamedata))}>add to collection (new)</button> : <button className="button" >in your collection</button>}
-        
+        {!collected ? <button className="button" onClick={(event) => {
+                event.preventDefault()
+                dispatch(addToCollection(gamedata))}
+                }>add to collection</button> : <button className="button" >in your collection</button>}
         </div>
     )
 }
