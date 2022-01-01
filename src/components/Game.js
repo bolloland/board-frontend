@@ -7,7 +7,7 @@ import AddToCollectionButton from './AddToCollectionButton'
 import GameTitle from './GameTitle'
 
 const Game = ({gamedata}) => {
-    // gamedata is each game
+    // console.log({gamedata})
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -26,12 +26,18 @@ const Game = ({gamedata}) => {
             <h5>Average Rating: <br></br>
             {gamedata.avg_rating ? gamedata.avg_rating + " / 5": "n/a"}</h5>
             
-            {!collected ? <button className="button" onClick={() => dispatch(addToCollection(gamedata))}>add to collection</button> : <button className="button" >in your collection</button>}
-    
+            {!collected ? <button className="button" onClick={(event) => {
+                event.preventDefault()
+                dispatch(addToCollection(gamedata))}
+                }>add to collection</button> : <button className="button" >in your collection</button>}
+            
+            {/* <AddToCollectionButton gamedata={gamedata} /> */}
         {/* <button>{gamedata.review_count === 0 ? "write a review" : "see " + gamedata.reviews.count + " review(s)"}</button> */}
     
         </div>
+        
     )
+    
 }
 
 export default Game
