@@ -41,14 +41,14 @@ const ShowGame = () => {
             <h1> {game && game.name} ({game && game.year_published})</h1>
             <img className="thumb-show" src={game && game.thumb_url} alt=""  />
             
-            <div className="description-container">{game && replacequotes(replaceHTML(game.description))}</div>
+            <div className="description-container">Description: {game && replacequotes(replaceHTML(game.description))}</div>
             <br></br><br></br>
 
-            <button>Add To Collection</button><br></br><br></br>
+            <button className="button">Add To Collection</button><br></br><br></br>
 
             Rating: {game && game.avg_rating} / 5 <br></br><br></br>
 
-            <button onClick={revealForm}>Add A Review  </button>
+            <button className="button" onClick={revealForm}>Add A Review  </button>
             {showRevForm ? <ReviewForm game={game}/> : !showRevForm }
 
             Reviews To Date: {game && game.reviews.length}<br></br>
