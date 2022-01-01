@@ -4,7 +4,7 @@ const Review = (props) => {
 
     return (
         <div className="review-container">
-           <strong> {props.rev.title}</strong><br></br>
+           <strong> {props.rev.title}</strong> - {props.rev.rating} out of 5<br></br>
             {props.rev.rev_text}
         </div>
     )
