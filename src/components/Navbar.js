@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
         <div className="navbar">
-          
+        <strong className="title">BOARD HOARD  </strong>
         <button className="button" onClick={() => { navigate("/") }}>Game Rack</button>
         <button className="button" onClick={() => { navigate("/myCollection") }}>My Collection</button>
         <button className="button" onClick={() => { navigate("/add-game") }}>Add A Game</button>
