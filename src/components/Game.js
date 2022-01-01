@@ -4,6 +4,7 @@ import { addToCollection } from '../actions'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import AddToCollectionButton from './AddToCollectionButton'
+import GameTitle from './GameTitle'
 
 const Game = ({gamedata}) => {
     // gamedata is each game
@@ -16,17 +17,18 @@ const Game = ({gamedata}) => {
 
     return (
         <div className="game-container">
-            {gamedata.name}<br />
+            {/* <h4>{gamedata.name}</h4><br></br> */}
+            <GameTitle gamedata={gamedata} />
             
             {/* is this ^^^ the issue with slugs URL? */}
             <img onClick={() => { navigate(`/games/${gamedata.id}`) }} className="thumb" src={gamedata.thumb_url} alt="" />
 
-            Average Rating: <br />
-            {gamedata.avg_rating ? gamedata.avg_rating + " / 5": "n/a"}
+            <h5>Average Rating: <br></br>
+            {gamedata.avg_rating ? gamedata.avg_rating + " / 5": "n/a"}</h5>
             
-            {!collected ? <button onClick={() => dispatch(addToCollection(gamedata))}>add to collection</button> : <button>"in your collection"</button>}
+            {!collected ? <button className="button" onClick={() => dispatch(addToCollection(gamedata))}>add to collection</button> : <button className="button" >in your collection</button>}
     
-        <button>{gamedata.review_count === 0 ? "write a review" : "see " + gamedata.reviews.count + " review(s)"}</button>
+        {/* <button>{gamedata.review_count === 0 ? "write a review" : "see " + gamedata.reviews.count + " review(s)"}</button> */}
     
         </div>
     )
