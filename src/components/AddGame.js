@@ -27,40 +27,44 @@ const AddGame = () => {
         }
     
         return (
-            <form onSubmit={handleSubmit} className="new-game-form">
-            <label>Enter game info below:<br></br>
-            <input 
-                type="text" 
-                name="name" 
-                value={inputs.name || ""} 
-                placeholder="enter game name here"
-                onChange={handleChange}
-            /> <br/>
-            <input 
-                type="text" 
-                name="year_published" 
-                value={inputs.year_published || ""} 
-                placeholder="year game was published"
-                onChange={handleChange}
-                /><br/>
-            <input 
-                type="text" 
-                name="thumb_url" 
-                value={inputs.thumb_url || ""} 
-                placeholder="place image here"
-                onChange={handleChange}
-                /><br/>
-            <input className="description-box"
-                type="text" 
-                name="description" 
-                value={inputs.description || ""} 
-                placeholder="write a short description here"
-                onChange={handleChange}
-                />
-            <br></br>
-            </label>
-                <input type="submit" />
-            </form>
+            <div className="new-game-form">
+                <form onSubmit={handleSubmit} >
+                    <label>Enter game info below:<br></br>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        value={inputs.name || ""} 
+                        placeholder="enter game name here"
+                        onChange={handleChange}
+                    /> <br/>
+                    <input 
+                        type="text" 
+                        name="year_published" 
+                        value={inputs.year_published || ""} 
+                        placeholder="year game was published"
+                        onChange={handleChange}
+                        /><br/>
+                    <input 
+                        type="text" 
+                        name="thumb_url" 
+                        value={inputs.thumb_url || ""} 
+                        placeholder=".jpeg image address here"
+                        onChange={handleChange}
+                        /><br/>
+                    <input 
+                        type="text" 
+                        name="description" 
+                        // className="description-box"
+                        size="50"
+                        value={inputs.description || ""} 
+                        placeholder="write a short description here"
+                        onChange={handleChange}
+                        />
+                    <br></br>
+                    </label>
+                    <input className="button" type="submit" value="submit new game" />
+                </form>
+            </div>
         )
     
 }
