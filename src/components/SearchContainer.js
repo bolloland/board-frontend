@@ -16,6 +16,7 @@ const SearchContainer = () => {
     let gameNames = allgames.filter(g => g.name.toLowerCase().includes(searchData.toLowerCase()) )
     
     const handleChange = (event) => {
+        event.preventDefault()
         const value = event.target.value;
         setSearchData(value)
     }
@@ -25,18 +26,19 @@ const SearchContainer = () => {
         <form>
         
             <div className="searchbar">
-                
+                <label>search: </label>
                 <input 
                 type="text"
-                placeholder="enter any part of the game's name"
+                size="32"
+                placeholder="enter any part of the game's name here..."
                 value={searchData || ""}
                 onChange={handleChange}
             />
-            </div>
-            
             <div className="search-field">
                 {gameNames.map(game => <Game gamedata={game}/>)}
             </div>
+            </div>
+            
 
         </form>
     )
