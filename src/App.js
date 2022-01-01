@@ -33,8 +33,6 @@ function App() {
         <Route exact path="/games/:id" element={ <ShowGame />}  />
         <Route exact path="/search" element={ <SearchContainer />}  />
       </Routes>
-      <h1>HORDE the BOARD </h1>
-      
       
       <Footer />
     </div>
