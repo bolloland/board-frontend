@@ -14,37 +14,30 @@ const SearchContainer = () => {
     const [searchData, setSearchData] = useState("");
     
     let gameNames = allgames.filter(g => g.name.toLowerCase().includes(searchData.toLowerCase()) )
-        // console.log(gameNames)
-        // setFoundGames(gameNames)
     
     const handleChange = (event) => {
-        // const name = event.target.name;
         const value = event.target.value;
-        // console.log(value)
         setSearchData(value)
     }
-    // console.log(searchData)
-    console.log(gameNames)
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     // submitNewSearch(searchData)
-    //     alert("Searching...!");
-    // }
+    // console.log(gameNames)
 
     return (
         <form>
-        {/* // <form onSubmit={handleSubmit}> */}
-        <div className="search-field">
-            <h2>Search Our Games!</h2>
-            <input 
+        
+            <div className="searchbar">
+                
+                <input 
                 type="text"
-                placeholder="Search..."
+                placeholder="enter any part of the game's name"
                 value={searchData || ""}
                 onChange={handleChange}
             />
-            {gameNames.map(game => <Game gamedata={game}/>)}
+            </div>
+            
+            <div className="search-field">
+                {gameNames.map(game => <Game gamedata={game}/>)}
+            </div>
 
-        </div>
         </form>
     )
 }
