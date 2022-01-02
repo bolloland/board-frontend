@@ -34,21 +34,21 @@ const AddGame = () => {
                         type="text" 
                         name="name" 
                         value={inputs.name || ""} 
-                        placeholder="enter game name here"
+                        placeholder="   enter game name here"
                         onChange={handleChange}
                     /> <br/>
                     <input 
                         type="text" 
                         name="year_published" 
                         value={inputs.year_published || ""} 
-                        placeholder="year game was published"
+                        placeholder=" year game was published"
                         onChange={handleChange}
                         /><br/>
                     <input 
                         type="text" 
                         name="thumb_url" 
                         value={inputs.thumb_url || ""} 
-                        placeholder=".jpeg image address here"
+                        placeholder="  valid image address here"
                         onChange={handleChange}
                         /><br/>
                     <input 
@@ -57,7 +57,15 @@ const AddGame = () => {
                         // className="description-box"
                         size="50"
                         value={inputs.description || ""} 
-                        placeholder="write a short description here"
+                        placeholder="                           write a short description here"
+                        onChange={handleChange}
+                        />
+                    <br></br>
+                    <input 
+                        type="text" 
+                        name="rating" 
+                        value={inputs.rating || ""} 
+                        placeholder="   rate the game from 1-5"
                         onChange={handleChange}
                         />
                     <br></br>
