@@ -1,19 +1,16 @@
 import React from 'react'
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux'
-import { useEffect } from 'react'
 import Game from './Game'
 
 const SearchContainer = () => {
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+    
+    const [searchData, setSearchData] = useState("")
+    
     const allgames = useSelector(state => state.gamesReducer.storeGames)
-    
-    const [searchData, setSearchData] = useState("");
-    
-    let gameNames = allgames.filter(g => g.name.toLowerCase().includes(searchData.toLowerCase()) )
+    let gameNames = allgames.filter(g => 
+        g.name.toLowerCase().includes(searchData.toLowerCase()) )
+        console.log(gameNames)
     
     const handleChange = (event) => {
         event.preventDefault()
@@ -23,9 +20,9 @@ const SearchContainer = () => {
     // console.log(gameNames)
 
     return (
-        <form>
-        
-            <div className="searchbar">
+        <div>
+        <form className="searchbar">
+            <div >
                 <label>search: </label>
                 <input 
                 type="text"
@@ -34,13 +31,13 @@ const SearchContainer = () => {
                 value={searchData || ""}
                 onChange={handleChange}
             />
+            </div>
+        </form> 
             <div className="search-field">
                 {gameNames.map(game => <Game gamedata={game}/>)}
             </div>
-            </div>
-            
 
-        </form>
+        </div>
     )
 }
 
