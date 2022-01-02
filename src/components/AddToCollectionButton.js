@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addToCollection } from '../actions'
+import { addToCollection, removeFromCollection } from '../actions'
 
 const AddToCollectionButton = ({gamedata}) => {
 
@@ -15,7 +15,12 @@ const AddToCollectionButton = ({gamedata}) => {
         {!collected ? <button className="button" onClick={(event) => {
                 event.preventDefault()
                 dispatch(addToCollection(gamedata))}
-                }>add to collection</button> : <button className="button" >in your collection</button>}
+                }>add to collection</button> : 
+                <button className="button" onClick={(event) => {
+                    event.preventDefault()
+                    dispatch(removeFromCollection(gamedata))}
+                }
+                 >remove from collection</button>}
         </div>
     )
 }
