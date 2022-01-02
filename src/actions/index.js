@@ -1,4 +1,4 @@
-import { LOAD_GAMES, SUBMIT_NEW_GAME, ADD_COLLECT, SHOW_HIDE_REVIEW_FORM, SUBMIT_NEW_REVIEW, LOAD_REVIEWS } from "./types"
+import { LOAD_GAMES, SUBMIT_NEW_GAME, ADD_COLLECT, SHOW_HIDE_REVIEW_FORM, SUBMIT_NEW_REVIEW, LOAD_REVIEWS, REMOVE_FROM_COLLECT } from "./types"
 import { useNavigate } from "react-router-dom"
 
 // ACTION -> describes WHAT you want to do, 
@@ -63,7 +63,7 @@ export const submitNewReview = (reviewData) => (dispatch) =>{
 }
 
 export const addToCollection = (item) => ({type: ADD_COLLECT, payload: item})
-
+export const removeFromCollection = (item) => ({type: REMOVE_FROM_COLLECT, payload: item})
 // 
 // thunk allows us to create a function that 
 // passes dispatch into the results of the fetch
