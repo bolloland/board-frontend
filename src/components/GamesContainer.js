@@ -18,7 +18,6 @@ const GamesContainer = () => {
          {/* && serves as an if>then statement */}
          {games.map(game => <Game gamedata={game}/>)}
 
-            <h3>games go here!</h3>
 
         </div>
     )
