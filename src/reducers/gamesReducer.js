@@ -1,4 +1,4 @@
-import { LOAD_GAMES, ADD_COLLECT, SUBMIT_NEW_GAME, SHOW_HIDE_REVIEW_FORM } from "../actions/types"
+import { LOAD_GAMES, ADD_COLLECT, SUBMIT_NEW_GAME, SHOW_HIDE_REVIEW_FORM, REMOVE_FROM_COLLECT } from "../actions/types"
 import { SUBMIT_NEW_REVIEW, LOAD_REVIEWS } from "../actions/types"
 
 const INITIAL_STATE = {
@@ -18,6 +18,8 @@ export const gamesReducer = (state = INITIAL_STATE, action) => {
             return {...state, storeGames: action.payload}
         case ADD_COLLECT:
             return {...state, myCollection: [...state.myCollection, action.payload]}
+        case REMOVE_FROM_COLLECT:
+            return {...state, myCollection: state.myCollection.filter(item => action.payload !== item)}
         case SUBMIT_NEW_GAME:
             return {...state, storeGames: [...state.storeGames, action.payload]}
         case SHOW_HIDE_REVIEW_FORM:
