@@ -8,7 +8,6 @@ const INITIAL_STATE = {
     gameReviews: []
 }
 
-// const gamesURL = "http://localhost:3000/games"
 // BLOG POST!!   LoadGames vs. SubmitNewGame
 //redux version of "push"
 

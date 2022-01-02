@@ -6,7 +6,6 @@ import { useEffect } from 'react'
 import Navbar from './components/Navbar';
 import { useNavigate, Routes, Route } from 'react-router'
 import SearchContainer from './components/SearchContainer'
-import Footer from './components/Footer'
 import { fetchGames } from './actions';
 import MyCollection from './components/MyCollection';
 import AddGame from './components/AddGame';
@@ -34,7 +33,6 @@ function App() {
         <Route exact path="/search" element={ <SearchContainer />}  />
       </Routes>
       
-      <Footer />
     </div>
   );
 }
