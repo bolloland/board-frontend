@@ -14,12 +14,14 @@ function App() {
 
   const dispatch = useDispatch()
 
+  // as App loads, similar to DomContentLoad, says:
+  //empty dependency array keeps from refresh looping
   useEffect(() => {
     dispatch(fetchGames()) 
   }, [])
+
   
-  // as App loads, similar to DomContentLoad, says:
-  //empty dependency array keeps from refresh looping
+
 
   return (
     <div >
