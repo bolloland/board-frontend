@@ -1,7 +1,6 @@
 import './App.css';
 import GamesContainer from './components/GamesContainer'
-import { useSelector, useDispatch } from 'react-redux'
-// import { getGames } from './actions'
+import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import Navbar from './components/Navbar';
 import { useNavigate, Routes, Route } from 'react-router'
@@ -13,14 +12,14 @@ import ShowGame from './components/ShowGame';
 
 function App() {
 
-  // const getTheGames = useSelector(state => state.gamesReducer.storeGames)
-  // console.log(getTheGames, "getting the Games")
   const dispatch = useDispatch()
 
-  // as App loads, sudo DomContentLoad, says 
   useEffect(() => {
     dispatch(fetchGames()) 
   }, [])
+  
+  // as App loads, similar to DomContentLoad, says:
+  //empty dependency array keeps from refresh looping
 
   return (
     <div >
