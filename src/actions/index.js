@@ -1,4 +1,14 @@
-import { LOAD_GAMES, SUBMIT_NEW_GAME, ADD_COLLECT, SHOW_HIDE_REVIEW_FORM, SUBMIT_NEW_REVIEW, LOAD_REVIEWS, REMOVE_FROM_COLLECT } from "./types"
+import { 
+  LOAD_GAMES, 
+  SUBMIT_NEW_GAME, 
+  ADD_COLLECT, 
+  SHOW_HIDE_REVIEW_FORM, 
+  SUBMIT_NEW_REVIEW, 
+  LOAD_REVIEWS, 
+  REMOVE_FROM_COLLECT, 
+  GET_ONE_GAME, 
+  UNSET_ONE_GAME 
+} from "./types"
 import { useNavigate } from "react-router-dom"
 
 // ACTION -> describes WHAT you want to do, 
@@ -23,7 +33,7 @@ export const fetchGames = () => (dispatch) => {
     })
 }
 
-export const submitNewGame = (inputs) => (dispatch) =>{
+export const submitNewGame = (inputs, navigate) => (dispatch) =>{
 
   fetch("http://localhost:3000/games", {
     method: "POST",
@@ -41,7 +51,19 @@ export const submitNewGame = (inputs) => (dispatch) =>{
       type: SUBMIT_NEW_GAME,
       payload: newGameData
     })
+    navigate(`/games/${newGameData.id}`)
 })
+}
+
+export const setSelectedGame = (id) => (dispatch) => {
+  fetch(`http://localhost:3000/games/${id}`)
+    .then(resp => resp.json())
+    .then(game =>
+        dispatch({                // sends to my reducer
+          type: GET_ONE_GAME,
+          payload: game
+        })
+    )
 }
 
 export const submitNewReview = (reviewData) => (dispatch) =>{
@@ -65,6 +87,7 @@ export const submitNewReview = (reviewData) => (dispatch) =>{
 
 export const addToCollection = (item) => ({type: ADD_COLLECT, payload: item})
 export const removeFromCollection = (item) => ({type: REMOVE_FROM_COLLECT, payload: item})
+export const unsetOneGame = () => ({type: UNSET_ONE_GAME})
 // 
 // thunk allows us to create a function that 
 // passes dispatch into the results of the fetch
