@@ -7,8 +7,9 @@ import { useNavigate } from "react-router-dom"
 //     return {
 //         type: 'INCREMENT'   //increment() when used in onClick{}      }
 
-//**b/c it's asynch, we need thunk to intercept the request and thunk will dispatch it when complete
+//**b/c fetch is asynch, we need thunk to (1)intercept the request and thunk will then (2)dispatch to the reducer when complete
 // ASYNCH FORMAT - BLOG POST
+//only once we get a response from our API call, can we manually dispatch the action of LOAD_GAMES
 export const fetchGames = () => (dispatch) => {
     fetch("http://localhost:3000/games")
     .then(resp => resp.json())
