@@ -1,11 +1,12 @@
-import { LOAD_GAMES, ADD_COLLECT, SUBMIT_NEW_GAME, SHOW_HIDE_REVIEW_FORM, REMOVE_FROM_COLLECT } from "../actions/types"
+import { LOAD_GAMES, ADD_COLLECT, SUBMIT_NEW_GAME, SHOW_HIDE_REVIEW_FORM, REMOVE_FROM_COLLECT, GET_ONE_GAME, UNSET_ONE_GAME} from "../actions/types"
 import { SUBMIT_NEW_REVIEW, LOAD_REVIEWS } from "../actions/types"
 
 const INITIAL_STATE = {
     storeGames: [],
     myCollection: [],
     showHideReviews: [false],
-    gameReviews: []
+    gameReviews: [],
+    oneGame: null
 }
 
 // BLOG POST!!   LoadGames vs. SubmitNewGame
@@ -20,7 +21,8 @@ export const gamesReducer = (state = INITIAL_STATE, action) => {
         case REMOVE_FROM_COLLECT:
             return {...state, myCollection: state.myCollection.filter(item => action.payload !== item)}
         case SUBMIT_NEW_GAME:
-            return {...state, storeGames: [...state.storeGames, action.payload]}
+            return {...state, storeGames: [action.payload, ...state.storeGames]}
+            //allows  updated payload to appear at begiinning of array
         case SHOW_HIDE_REVIEW_FORM:
             return {...state, showHideReviews: [...state.showHideReviews, action.payload]}
         case SUBMIT_NEW_REVIEW:
@@ -30,6 +32,11 @@ export const gamesReducer = (state = INITIAL_STATE, action) => {
                 ...state, 
                 storeGames: [...state.storeGames], game
             }
+        case GET_ONE_GAME:
+            console.log(action.payload)
+            return {...state, oneGame: action.payload}
+        case UNSET_ONE_GAME:
+            return {...state, oneGame: null }
         default:
             return {...state}      
     }
