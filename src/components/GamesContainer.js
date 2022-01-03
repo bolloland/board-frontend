@@ -3,11 +3,12 @@ import '../styles.css'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import Game from './Game'
-import "../styles.css"  
 
 const GamesContainer = () => {
     
     const games = useSelector(state => state.gamesReducer.storeGames)
+    // aka mapStateToProps ^^
+
     
     useEffect(() => {
         console.log(games, "game update")
