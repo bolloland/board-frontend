@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import AddToCollectionButton from './AddToCollectionButton'
 import GameTitle from './GameTitle'
+import { useState } from 'react'
 
 const Game = ({gamedata}) => {
     // console.log({gamedata})
@@ -14,6 +15,8 @@ const Game = ({gamedata}) => {
     const myCollection = useSelector(state => state.gamesReducer.myCollection)
 
     let collected = myCollection.find(g => g.id === gamedata.id)
+    const [counter, setCounter] = useState(0)
+
 
     return (
         <div className="game-container">
@@ -34,6 +37,8 @@ const Game = ({gamedata}) => {
             <AddToCollectionButton gamedata={gamedata} />
         {/* <button>{gamedata.review_count === 0 ? "write a review" : "see " + gamedata.reviews.count + " review(s)"}</button> */}
     
+        {/* <button onClick={() => setCounter(counter + 1)}>{counter}</button> */}
+
         </div>
         
     )
