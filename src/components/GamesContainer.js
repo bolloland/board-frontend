@@ -37,7 +37,7 @@ const GamesContainer = () => {
         <div className="allgames-container">
          
          {/* && serves as an if>then statement */}
-         {filterGames(games).map(game => <Game game={game}/>)}
+         {filterGames(games).map(game => <Game gamedata={game}/>)}
          {/* {games.map(game => <Game gamedata={game}/>)} */}
 
         </div></div>
