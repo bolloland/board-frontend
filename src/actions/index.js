@@ -7,7 +7,9 @@ import {
   LOAD_REVIEWS, 
   REMOVE_FROM_COLLECT, 
   GET_ONE_GAME, 
-  UNSET_ONE_GAME 
+  UNSET_ONE_GAME, 
+  HIDE_SEARCH_BUTTON, 
+  SHOW_SEARCH_BUTTON
 } from "./types"
 import { useNavigate } from "react-router-dom"
 
@@ -88,6 +90,8 @@ export const submitNewReview = (reviewData) => (dispatch) =>{
 export const addToCollection = (item) => ({type: ADD_COLLECT, payload: item})
 export const removeFromCollection = (item) => ({type: REMOVE_FROM_COLLECT, payload: item})
 export const unsetOneGame = () => ({type: UNSET_ONE_GAME})
+export const searchButtonShow = () => ({type: SHOW_SEARCH_BUTTON})
+export const searchButtonHide = () => ({type: HIDE_SEARCH_BUTTON})
 // 
 // thunk allows us to create a function that 
 // passes dispatch into the results of the fetch
