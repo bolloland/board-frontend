@@ -1,4 +1,4 @@
-import { LOAD_GAMES, ADD_COLLECT, SUBMIT_NEW_GAME, SHOW_HIDE_REVIEW_FORM, REMOVE_FROM_COLLECT, GET_ONE_GAME, UNSET_ONE_GAME} from "../actions/types"
+import { LOAD_GAMES, ADD_COLLECT, SUBMIT_NEW_GAME, SHOW_HIDE_REVIEW_FORM, REMOVE_FROM_COLLECT, GET_ONE_GAME, UNSET_ONE_GAME, SHOW_SEARCH_BUTTON, HIDE_SEARCH_BUTTON} from "../actions/types"
 import { SUBMIT_NEW_REVIEW, LOAD_REVIEWS } from "../actions/types"
 
 const INITIAL_STATE = {
@@ -6,7 +6,8 @@ const INITIAL_STATE = {
     myCollection: [],
     showHideReviews: [false],
     gameReviews: [],
-    oneGame: null
+    oneGame: null,
+    showSearchButton: true
 }
 
 // BLOG POST!!   LoadGames vs. SubmitNewGame
@@ -37,6 +38,10 @@ export const gamesReducer = (state = INITIAL_STATE, action) => {
             return {...state, oneGame: action.payload}
         case UNSET_ONE_GAME:
             return {...state, oneGame: null }
+        case SHOW_SEARCH_BUTTON:
+            return {...state, showSearchButton: true }
+        case HIDE_SEARCH_BUTTON:
+            return {...state, showSearchButton: false }
         default:
             return {...state}      
     }
