@@ -4,6 +4,9 @@ import { addToCollection, removeFromCollection } from '../actions'
 
 const AddToCollectionButton = ({gamedata}) => {
 
+// const AddToCollectionButton = (props) => {
+//     console.log(props.game)
+//     let gamedata = props.game
     const dispatch = useDispatch()
 
     const myCollection = useSelector(state => state.gamesReducer.myCollection)
