@@ -15,14 +15,14 @@ const INITIAL_STATE = {
 
 export const gamesReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
-        case ADD_COLLECT:
-            return {...state, myCollection: [...state.myCollection, action.payload]}
         case LOAD_GAMES:
             return {...state, storeGames: action.payload}
+        case ADD_COLLECT:
+            return {...state, myCollection: [...state.myCollection, action.payload]}
         case REMOVE_FROM_COLLECT:
             return {...state, myCollection: state.myCollection.filter(item => action.payload !== item)}
         case SUBMIT_NEW_GAME:
-            return {...state, storeGames: [action.payload, ...state.storeGames]}
+            return {...state, storeGames: [ ...state.storeGames, action.payload]}
             //allows  updated payload to appear at begiinning of array
         case SHOW_HIDE_REVIEW_FORM:
             return {...state, showHideReviews: [...state.showHideReviews, action.payload]}
