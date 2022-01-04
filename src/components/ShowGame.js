@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { setSelectedGame, unsetOneGame } from '../actions'
 import AddToCollectionButton from './AddToCollectionButton'
+import { addToCollection, removeFromCollection } from '../actions'
 
 const ShowGame = () => {
     console.log(useParams())
@@ -20,6 +21,10 @@ const ShowGame = () => {
     console.log(game)
     const showHide = useSelector(state => state.gamesReducer.showHideReviews)
     const dispatch = useDispatch()
+
+    const myCollection = useSelector(state => state.gamesReducer.myCollection)
+
+    let collected = myCollection.find(g => g.id === game.id)
 
         const [showRevForm, setShowRevForm] = useState(false)
         // LATER: change text on buttonClick?
@@ -53,7 +58,19 @@ useEffect(() => {
             <br></br><br></br>
 
             {/* <AddToCollectionButton game={game}/>  */}
-            <button className="button">Add To Collection</button><br></br><br></br>
+            {/* <button className="button">Add To Collection</button><br></br><br></br> */}
+
+            {!collected ? <button className="button" onClick={(event) => {
+                event.preventDefault()
+                dispatch(addToCollection(game))}
+                }>add to collection</button> : 
+                <button className="button" onClick={(event) => {
+                    event.preventDefault()
+                    dispatch(removeFromCollection(game))}
+                }
+                >remove from collection</button>}
+
+
 
             Rating: {game && game.avg_rating} / 5 <br></br><br></br>
 
