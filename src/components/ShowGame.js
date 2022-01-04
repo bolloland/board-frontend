@@ -7,8 +7,7 @@ import Review from './Review'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { setSelectedGame, unsetOneGame } from '../actions'
-
-
+import AddToCollectionButton from './AddToCollectionButton'
 
 const ShowGame = () => {
     console.log(useParams())
@@ -30,8 +29,7 @@ useEffect(() => {
     dispatch(setSelectedGame(id)) 
     return dispatch(unsetOneGame())
 }, [])
-
-
+    
     // let game = games.find(g => g.name === slug)
     // let game = games.find(g => g.id == pathID)
     
@@ -45,7 +43,7 @@ useEffect(() => {
     // useEffect(() => {
         
     // }, [games])
-
+    console.log(game)
     return (
         <div className="one-game">
             <h1> {game && game.name} ({game && game.year_published})</h1>
@@ -54,6 +52,7 @@ useEffect(() => {
             <div className="description-container">Description: {game && replacequotes(replaceHTML(game.description))}</div>
             <br></br><br></br>
 
+            {/* <AddToCollectionButton game={game}/>  */}
             <button className="button">Add To Collection</button><br></br><br></br>
 
             Rating: {game && game.avg_rating} / 5 <br></br><br></br>
