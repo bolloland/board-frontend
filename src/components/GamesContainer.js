@@ -5,19 +5,15 @@ import { useSelector } from 'react-redux'
 import Game from './Game'
 import { useState } from 'react'
 
-
 const GamesContainer = () => {
     
-    const games = useSelector(state => state.gamesReducer.storeGames)
-    // aka mapStateToProps ^^
-
+    const games = useSelector(state => state.gamesReducer.storeGames)   
     const [ratedGames, setRatedGames] = useState(false)
     
     useEffect(() => {
-        console.log(games, "game update")
+        console.log(games, "games updated")
     }, [games])
     
-
     const handleOnclick = (event) => {
         event.preventDefault()
         setRatedGames(!ratedGames)
