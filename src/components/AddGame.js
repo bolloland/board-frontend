@@ -14,13 +14,14 @@ const AddGame = () => {
             const handleChange = (event) => {
             const name = event.target.name;
             const value = event.target.value;
-            setInputs(values => ({...values, [name]: value}))
+            setInputs(values => ({...values, [name]: value, reviews: []}))
+            console.log(inputs)
             }
         
             const handleSubmit = (event) => {
             event.preventDefault();
-            dispatch(submitNewGame(inputs, navigate))
             console.log(inputs)
+            dispatch(submitNewGame(inputs, navigate))
                 // navigate("/")
             //    navigate("/")
             alert("You added a new game!");
@@ -63,8 +64,8 @@ const AddGame = () => {
                     <br></br>
                     <input 
                         type="text" 
-                        name="rating" 
-                        value={inputs.rating || ""} 
+                        name="avg_rating" 
+                        value={inputs.avg_rating || ""} 
                         placeholder="   rate the game from 1-5"
                         onChange={handleChange}
                         />
