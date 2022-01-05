@@ -22,6 +22,9 @@ export const gamesReducer = (state = INITIAL_STATE, action) => {
         case REMOVE_FROM_COLLECT:
             return {...state, myCollection: state.myCollection.filter(item => action.payload !== item)}
         case SUBMIT_NEW_GAME:
+            console.log(action.payload, "submitted new game")
+            action.payload.reviews = []
+            console.log(action.payload, "reviews added?")
             return {...state, storeGames: [ ...state.storeGames, action.payload]}
             //allows  updated payload to appear at begiinning of array
         case SHOW_HIDE_REVIEW_FORM:
@@ -31,10 +34,10 @@ export const gamesReducer = (state = INITIAL_STATE, action) => {
             game.reviews.push(action.payload)
             return {
                 ...state, 
-                storeGames: [...state.storeGames], game
+                storeGames: [...state.storeGames, game]
             }
         case GET_ONE_GAME:
-            console.log(action.payload)
+            // console.log(action.payload)
             return {...state, oneGame: action.payload}
         case UNSET_ONE_GAME:
             return {...state, oneGame: null }
