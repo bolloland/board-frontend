@@ -44,29 +44,30 @@ export const submitNewGame = (inputs, navigate) => (dispatch) =>{
     body: JSON.stringify(inputs)
   })
   .then(resp => resp.json())
-  .then(newGameData => {
+  .then(gamedata => {
     
-    // console.log(newGameData, "newGameData")
+    console.log(gamedata, "gamedata")
     dispatch({                // sends to my reducer
       type: SUBMIT_NEW_GAME,
-      payload: newGameData
+      payload: gamedata
     })
-    navigate(`/games/${newGameData.id}`)
+    navigate(`/games/${gamedata.id}`, {state: {gamedata}})
 })
 }
 
-export const setSelectedGame = (id) => (dispatch) => {
-  fetch(`http://localhost:3000/games/${id}`)
-    .then(resp => resp.json())
-    .then(game =>
-        dispatch({                // sends to my reducer
-          type: GET_ONE_GAME,
-          payload: game
-        })
-    )
-}
+// export const setSelectedGame = (id) => (dispatch) => {
+//   fetch(`http://localhost:3000/games/${id}`)
+//     .then(resp => resp.json())
+//     .then(game =>
+//         dispatch({                // sends to my reducer
+//           type: GET_ONE_GAME,
+//           payload: game
+//         })
+//     )
+// }
 
 export const submitNewReview = (reviewData) => (dispatch) =>{
+  
   fetch(`http://localhost:3000/reviews`, {
     method: "POST",
     headers: {
@@ -82,6 +83,8 @@ export const submitNewReview = (reviewData) => (dispatch) =>{
       type: SUBMIT_NEW_REVIEW,
       payload: newReviewData
     })
+    // navigate(`/games/${newReviewData.game_id}`)
+    
 })
 }
 
