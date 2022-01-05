@@ -22,8 +22,6 @@ const AddGame = () => {
             event.preventDefault();
             console.log(inputs)
             dispatch(submitNewGame(inputs, navigate))
-                // navigate("/")
-            //    navigate("/")
             alert("You added a new game!");
         }
     

@@ -20,9 +20,6 @@ function App() {
     dispatch(fetchGames()) 
   }, [])
 
-  
-
-
   return (
     <div >
       <Navbar />

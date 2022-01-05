@@ -8,7 +8,6 @@ const MyCollection = (props) => {
     const dispatch = useDispatch()
     const collection = useSelector(state => state.gamesReducer.myCollection)
     const empty = collection.length == 0
-    // console.log(collection)
 
     return (
         <div >

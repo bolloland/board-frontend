@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import GameTitle from './GameTitle'
 
 const Game = ({gamedata}) => {
-    // console.log({gamedata})
+
 
     const dispatch = useDispatch()
     const navigate = useNavigate()

@@ -11,15 +11,6 @@ import {
 } from "./types"
 import { useNavigate } from "react-router-dom"
 
-// ACTION -> describes WHAT you want to do, 
-// where we name it using "type:" || **function that returns an object**
-// export const increment = (amount) => {
-//     return {
-//         type: 'INCREMENT'   //increment() when used in onClick{}      }
-
-//**b/c fetch is asynch, we need thunk to (1)intercept the request and thunk will then (2)dispatch to the reducer when complete
-// ASYNCH FORMAT - BLOG POST
-//only once we get a response from our API call, can we manually dispatch the action of LOAD_GAMES
 export const fetchGames = () => (dispatch) => {
     fetch("http://localhost:3000/games")
     .then(resp => resp.json())
@@ -55,17 +46,6 @@ export const submitNewGame = (inputs, navigate) => (dispatch) =>{
 })
 }
 
-// export const setSelectedGame = (id) => (dispatch) => {
-//   fetch(`http://localhost:3000/games/${id}`)
-//     .then(resp => resp.json())
-//     .then(game =>
-//         dispatch({                // sends to my reducer
-//           type: GET_ONE_GAME,
-//           payload: game
-//         })
-//     )
-// }
-
 export const submitNewReview = (reviewData) => (dispatch) =>{
   
   fetch(`http://localhost:3000/reviews`, {
@@ -85,7 +65,7 @@ export const submitNewReview = (reviewData) => (dispatch) =>{
     })
     // navigate(`/games/${newReviewData.game_id}`)
     
-})
+  })
 }
 
 export const addToCollection = (item) => ({type: ADD_COLLECT, payload: item})
@@ -95,4 +75,16 @@ export const searchButtonShow = () => ({type: SHOW_SEARCH_BUTTON})
 export const searchButtonHide = () => ({type: HIDE_SEARCH_BUTTON})
 // 
 // thunk allows us to create a function that 
-// passes dispatch into the results of the fetch
+// passes dispatch into the results of the fetch along with the action object
+
+
+// export const setSelectedGame = (id) => (dispatch) => {
+//   fetch(`http://localhost:3000/games/${id}`)
+//     .then(resp => resp.json())
+//     .then(game =>
+//         dispatch({                // sends to my reducer
+//           type: GET_ONE_GAME,
+//           payload: game
+//         })
+//     )
+// }

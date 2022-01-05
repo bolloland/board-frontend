@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 
 
 const ReviewForm = (props) => {
-    console.log(props)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
