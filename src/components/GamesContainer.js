@@ -17,7 +17,6 @@ const GamesContainer = () => {
         console.log(games, "game update")
     }, [games])
     
-    // const highRate = games.filter(game => game.avg_rating > 4) 
 
     const handleOnclick = (event) => {
         event.preventDefault()
