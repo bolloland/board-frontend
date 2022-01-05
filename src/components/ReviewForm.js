@@ -6,8 +6,8 @@ import { submitNewReview } from '../actions';
 import { useEffect } from 'react';
 
 
-const ReviewForm = (game) => {
-    // console.log(game.game.id)
+const ReviewForm = (props) => {
+    console.log(props)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -23,9 +23,9 @@ const ReviewForm = (game) => {
       
         const handleSubmit = (event) => {
           event.preventDefault();
-          dispatch(submitNewReview(reviewData))
+          dispatch(submitNewReview(reviewData, navigate, props.game))
            
-            navigate(`/`)
+          navigate(`/`)
           alert("You added a new review!");
           setSubmittedData(true)
         }
@@ -61,7 +61,7 @@ const ReviewForm = (game) => {
             <input 
                 type="hidden" 
                 name="game_id" 
-                value={reviewData.game_id = game.game.id} 
+                value={reviewData.game_id = props.game.id} 
                 placeholder="place review here"
                 onChange={handleChange}
                 />
