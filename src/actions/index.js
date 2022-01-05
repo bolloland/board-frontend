@@ -58,7 +58,7 @@ export const submitNewReview = (reviewData) => (dispatch) =>{
   })
   .then(resp => resp.json())
   .then(newReviewData => {
-    console.log(newReviewData, "newReviewData")
+    // console.log(newReviewData, "newReviewData")
     dispatch({                // sends to my reducer
       type: SUBMIT_NEW_REVIEW,
       payload: newReviewData
