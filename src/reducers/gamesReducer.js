@@ -10,9 +10,6 @@ const INITIAL_STATE = {
     showSearchButton: true
 }
 
-// BLOG POST!!   LoadGames vs. SubmitNewGame
-//redux version of "push"
-
 export const gamesReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case LOAD_GAMES:
@@ -26,7 +23,6 @@ export const gamesReducer = (state = INITIAL_STATE, action) => {
             action.payload.reviews = []
             console.log(action.payload, "reviews added?")
             return {...state, storeGames: [ ...state.storeGames, action.payload]}
-            //allows  updated payload to appear at begiinning of array
         case SHOW_HIDE_REVIEW_FORM:
             return {...state, showHideReviews: [...state.showHideReviews, action.payload]}
         case SUBMIT_NEW_REVIEW:
@@ -37,7 +33,6 @@ export const gamesReducer = (state = INITIAL_STATE, action) => {
                 storeGames: [...state.storeGames, game]
             }
         case GET_ONE_GAME:
-            // console.log(action.payload)
             return {...state, oneGame: action.payload}
         case UNSET_ONE_GAME:
             return {...state, oneGame: null }

@@ -14,7 +14,7 @@ const Game = ({gamedata}) => {
     const myCollection = useSelector(state => state.gamesReducer.myCollection)
 
     let collected = myCollection.find(g => g.id === gamedata.id)
-    // debugger
+
     return (
         <div className="game-container">
             {/* <h4>{gamedata.name}</h4><br></br> */}

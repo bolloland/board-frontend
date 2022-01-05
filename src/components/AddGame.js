@@ -53,7 +53,6 @@ const AddGame = () => {
                     <input 
                         type="text" 
                         name="description" 
-                        // className="description-box"
                         size="50"
                         value={inputs.description || ""} 
                         placeholder="                           write a short description here"

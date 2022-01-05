@@ -9,12 +9,8 @@ import { useSelector } from 'react-redux'
 const Navbar = () => {
 
     const navigate = useNavigate()
-
     const [showSearchButton, setShowSearchButton] = useState(true)
-    // const showSearchButton = useSelector(state => state.gamesReducer.showSearchButton)
-
     const pathname = (window.location.pathname.split("/"))
-    // console.log(pathname.includes("search") ? true : false)
     
     useEffect(() => {
         !pathname.includes("search") && setShowSearchButton(true)

@@ -17,7 +17,6 @@ const SearchContainer = () => {
         const value = event.target.value;
         setSearchData(value)
     }
-    // console.log(gameNames)
 
     return (
         <div>

@@ -16,7 +16,6 @@ const ReviewForm = (props) => {
         const handleChange = (event) => {
           const name = event.target.name;
           const value = event.target.value;
-          // console.log(value)
           setReviewData(values => ({...values, [name]: value}))
         }
       

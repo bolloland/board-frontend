@@ -4,7 +4,7 @@ import Game from './Game'
 import Empty from './Empty'
 
 const MyCollection = (props) => {
-// taking in the myCollection array from state
+
     const dispatch = useDispatch()
     const collection = useSelector(state => state.gamesReducer.myCollection)
     const empty = collection.length == 0
