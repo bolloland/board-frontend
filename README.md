@@ -1,4 +1,4 @@
-# Welcome to BOARD HORDE
+# Welcome to BOARD HOARD    
 
 This project was bootstrapped with [Create React App](https://create-react-app.dev/docs/getting-started) and [React-Redux](https://redux.js.org/introduction/installation).
 
