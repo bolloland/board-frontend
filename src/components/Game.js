@@ -6,14 +6,21 @@ import { useNavigate } from 'react-router-dom'
 // import AddToCollectionButton from './AddToCollectionButton'
 import GameTitle from './GameTitle'
 
-const Game = ({gamedata}) => {
-
+const Game = ({gamedata, incrementValue}) => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const myCollection = useSelector(state => state.gamesReducer.myCollection)
 
     let collected = myCollection.find(g => g.id === gamedata.id)
+
+// **CODE TO HANFLE INCREMENT BUTTON LOGIC
+    // const handleIncrement = (event) => {
+    //     console.log(incrementValue)
+    //     const newValue = parseInt(incrementValue) + parseInt(event.target.innerText)
+    //     event.target.innerText = newValue
+    //     // debugger
+    // }
 
     return (
         <div className="game-container">
@@ -38,6 +45,9 @@ const Game = ({gamedata}) => {
                 }
                 >remove from collection</button>}
                 </div>
+
+                    {/* increment button */}
+                {/* <button onClick={handleIncrement}>0</button> */}
         
         {/* {!collected ? <button className="button" onClick={(event) => {
                 event.preventDefault()
