@@ -10,8 +10,8 @@ import thunk from 'redux-thunk'
 
 //STORE -> GLOBALIZED STATE (where all our State data is kept)
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(allReducers, composeEnhancers(applyMiddleware(thunk)))
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;const store = createStore(allReducers, composeEnhancers(applyMiddleware(thunk)))
 // allows store to access middleWare and thunk
 
 // https://github.com/zalmoxisus/redux-devtools-extension
